@@ -274,16 +274,6 @@ Ce projet est sous licence **MIT**.
 
 ---
 
-## 🔮 Perspectives
-
-### Améliorations futures
-
-- [ ] **Génération de solitons par barrière mobile** (laser désaccordé)
-- [ ] **Collisions soliton sombre-clair** (régime critique Δ ≈ 0)
-- [ ] **Extension 2D** : vortex + soliton dans un BEC rotatif
-- [ ] **Optimisation GPU** (CuPy) pour simulations à haute résolution
-- [ ] **Interface graphique** (PyQt) pour exploration paramétrique
-
 ### Applications potentielles
 
 - **Qubits solitoniques** pour le calcul quantique tolérant aux fautes
