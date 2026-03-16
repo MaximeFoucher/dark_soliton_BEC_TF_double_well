@@ -1,4 +1,4 @@
-# 🌊 Collision de Solitons Sombres dans un Condensat de Bose-Einstein Binaire
+# Collision de Solitons Sombres dans un Condensat de Bose-Einstein Binaire
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-1.20%2B-orange)](https://numpy.org/)
@@ -9,7 +9,7 @@
 
 ---
 
-## 📋 Table des matières
+## Table des matières
 
 - [Description](#-description)
 - [Physique du système](#-physique-du-système)
@@ -23,7 +23,7 @@
 
 ---
 
-## 📖 Description
+## Description
 
 Ce projet simule la **dynamique de collision entre deux solitons sombres** portés par des atomes de rubidium, potassium, sodium et de césium dans un condensat de Bose-Einstein (BEC) binaire en régime quasi-1D. 
 
@@ -39,7 +39,7 @@ Résolution des **équations de Gross-Pitaevskii couplées** via la méthode **s
 
 ---
 
-## ⚛️ Physique du système
+## Physique du système
 
 ### Équations de Gross-Pitaevskii couplées
 
@@ -87,7 +87,7 @@ V₀(t) = V_barrière × ½ [1 + cos(π τ)]  avec τ ∈ [0, 1]
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 ### Prérequis
 
@@ -98,7 +98,7 @@ V₀(t) = V_barrière × ½ [1 + cos(π τ)]  avec τ ∈ [0, 1]
 
 ---
 
-## 🚀 Utilisation
+## Utilisation
 
 ### Exécution de la simulation
 ```bash
@@ -141,7 +141,7 @@ images = 400      # Nombre d'images sauvegardées
 
 ---
 
-## 📁 Structure du code
+## Structure du code
 ```
 .
 ├── bpm.py                      # Moteur principal (split-step BPM)
@@ -167,7 +167,7 @@ images = 400      # Nombre d'images sauvegardées
 
 ---
 
-## 🔬 Paramètres physiques
+## Paramètres physiques
 
 ### Longueurs de diffusion (valeurs expérimentales)
 
@@ -192,7 +192,7 @@ images = 400      # Nombre d'images sauvegardées
 
 ---
 
-## 📊 Résultats
+## Résultats
 
 ### Graphiques générés
 
@@ -214,7 +214,7 @@ Après exécution, 3 fichiers PNG sont créés dans `examples1D/test_SI/` :
 
 ---
 
-## 📚 Références
+## Références
 
 ### Articles scientifiques
 
@@ -240,7 +240,7 @@ Après exécution, 3 fichiers PNG sont créés dans `examples1D/test_SI/` :
 
 ---
 
-## 👥 Auteurs
+## Auteurs
 
 **Wan Penet** & **Maxime Foucher**  
 *Projet de Recherche & Développement - LYRIDS - ECE Lyon, 2025/2026*
@@ -251,7 +251,7 @@ Après exécution, 3 fichiers PNG sont créés dans `examples1D/test_SI/` :
 
 ---
 
-## 📧 Contact
+## Contact
 
 Pour toute question ou suggestion :  
 📧 **wan.penet@edu.ece.fr**  
@@ -259,13 +259,13 @@ Pour toute question ou suggestion :
 
 ---
 
-## 📝 Licence
+## Licence
 
 Ce projet est sous licence **MIT**. 
 
 ---
 
-## 🙏 Remerciements
+## Remerciements
 
 - **Jean Dalibard** (Collège de France) pour les notes de cours sur les BEC
 - **Edgar Figueiras et al.** (Université de Vigo) pour le code de base BPM
@@ -282,4 +282,4 @@ Ce projet est sous licence **MIT**.
 
 ---
 
-**⭐ Si ce projet vous est utile, n'hésitez pas à mettre une étoile sur GitHub !**
+** Si ce projet vous est utile, n'hésitez pas à mettre une étoile sur GitHub !**
