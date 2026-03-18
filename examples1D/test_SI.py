@@ -1,5 +1,5 @@
 # File: test_SI.py
-# Run as: python bpm2.py test_SI 1D
+# Run as: python bpm.py test_SI 1D
 #
 # COUPLAGES VÉRIDIQUES calculés depuis g3D (Jean Dalibard)
 # via intégration transverse (formule Olshanii)
@@ -7,6 +7,7 @@
 # Système Rb-87 + Cs-133 en régime quasi-1D
 
 import numpy as np
+
 
 # ============================================================================
 # 1. CONSTANTES PHYSIQUES
@@ -174,13 +175,18 @@ else:
 
 Ntot = 1.2e4
 # mu = 15
-aoh = np.sqrt(hbar/(massRb*omega_z_SI))
+aohRb = np.sqrt(hbar/(massRb*omega_z_SI))
+aohCs = np.sqrt(hbar/(massCs*omega_z_SI))
+aohNa = np.sqrt(hbar/(massNa*omega_z_SI))
+aohK = np.sqrt(hbar/(massK*omega_z_SI))
+aohLi = np.sqrt(hbar/(massLi*omega_z_SI))
 
-mu_temp_Rb = 0.5 * ((15*Ntot*a_s_Rb)/aoh)**((2/5))* hbar*omega_z_SI  # estimation grossière pour le potentiel chimique à partir de la densité maximale
-mu_temp_Cs = 0.5 * ((15*Ntot*a_s_Cs)/aoh)**((2/5))*hbar*omega_z_SI  
-mu_temp_Na = 0.5 * ((15*Ntot*a_s_Na)/aoh)**((2/5))*hbar*omega_z_SI 
-mu_temp_K = 0.5 * ((15*Ntot*a_s_K)/aoh)**((2/5))*hbar*omega_z_SI  
-mu_temp_Li = 0.5 * ((15*Ntot*a_s_Li)/aoh)**((2/5))*hbar*omega_z_SI 
+
+mu_temp_Rb = 0.5 * ((15*Ntot*a_s_Rb)/aohRb)**((2/5))* hbar*omega_z_SI  # estimation grossière pour le potentiel chimique à partir de la densité maximale
+mu_temp_Cs = 0.5 * ((15*Ntot*a_s_Cs)/aohCs)**((2/5))*hbar*omega_z_SI  
+mu_temp_Na = 0.5 * ((15*Ntot*a_s_Na)/aohNa)**((2/5))*hbar*omega_z_SI 
+mu_temp_K = 0.5 * ((15*Ntot*a_s_K)/aohK)**((2/5))*hbar*omega_z_SI  
+mu_temp_Li = 0.5 * ((15*Ntot*a_s_Li)/aohLi)**((2/5))*hbar*omega_z_SI 
 
 mu_Rb = mu_temp_Rb/(hbar*omega_z_SI)  # estimation grossière pour le potentiel chimique à partir de la densité maximale
 mu_Cs = mu_temp_Cs/(hbar*omega_z_SI)  
