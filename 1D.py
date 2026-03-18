@@ -168,15 +168,15 @@ def final_output(folder,x,Deltat,psi,savepsi_data,output_choice,images,fixmaximu
     
     # Labels et titres selon le type de densité
     if boolean1 and boolean2:
-        cbar.set_label('Densité normalisée', fontsize=14)
+        cbar.set_label('|ψ|²', fontsize=14)
         # title_str = 'Densité totale $|\psi_1|^2 + |\psi_2|^2$'
         suffix = 'total'
     elif boolean1:
-        cbar.set_label('Densité normalisée', fontsize=14)
+        cbar.set_label('|ψ₁|²', fontsize=14)
         # title_str = 'Rubidium-87 : $|\psi_1|^2$'
         suffix = 'psi1'
     else:
-        cbar.set_label('Densité normalisée', fontsize=14)
+        cbar.set_label('|ψ₂|²', fontsize=14)
         # title_str = 'Césium-133 : $|\psi_2|^2$'
         suffix = 'psi2'
     title_str = ''
@@ -190,7 +190,7 @@ def final_output(folder,x,Deltat,psi,savepsi_data,output_choice,images,fixmaximu
     # ========================================================================
     figname = f'{folder}/sectx_{suffix}.png'
     plt.savefig(figname, dpi=200, bbox_inches='tight')
-    print(f"✓ {figname} — densité normalisée [0, 1]")
+    print(f"✓ {figname} — |ψ|² [0, 1]")
     
     plt.show()
 
@@ -218,7 +218,7 @@ def movie(folder):
         except:
             print("Error making movie with mencoder")
 
-def generate_plotly_plots(folder, x, images, Deltat, savepsi_data):
+def generate_plotly_plots(folder, x, images, Deltat, savepsi_data, savepsi1_data, savepsi2_data):
     """
     Génère un graphique 3D interactif avec Plotly basé sur les données accumulées.
     """
@@ -235,15 +235,15 @@ def generate_plotly_plots(folder, x, images, Deltat, savepsi_data):
         y=tvec, 
         z=savepsi_data,
         colorscale='Jet',
-        colorbar=dict(title="Densité", thickness=20)
+        colorbar=dict(title="|ψ|²", thickness=20)
     )])
 
     fig.update_layout(
         title='Évolution Spatio-Temporelle (BPM 1D)',
         scene=dict(
-            xaxis_title='Position x (µm)',
-            yaxis_title='Temps t (ms)',
-            zaxis_title='Densité',
+            xaxis_title='x (µm)',
+            yaxis_title='t (ms)',
+            zaxis_title='|ψ|²',
             aspectmode='manual',
             aspectratio=dict(x=2, y=1.5, z=1),
             camera=dict(eye=dict(x=1.5, y=-1.5, z=1.3))
@@ -255,6 +255,71 @@ def generate_plotly_plots(folder, x, images, Deltat, savepsi_data):
     output_html = f"{folder}/simulation_interactive_3d.html"
     fig.write_html(output_html)
     print(f"✓ Fichier HTML généré : {output_html}")
+
+    # Création des graphiques 3D pour psi1 
+
+    # Création des vecteurs de temps et d'espace
+    tvec = np.linspace(0, Deltat * images, savepsi1_data.shape[0])
+    
+    # Création de la figure 3D
+    fig = go.Figure(data=[go.Surface(
+        x=x, 
+        y=tvec, 
+        z=savepsi1_data,
+        colorscale='Jet',
+        colorbar=dict(title="|ψ1|²", thickness=20)
+    )])
+
+    fig.update_layout(
+        title='Évolution Spatio-Temporelle (BPM 1D)',
+        scene=dict(
+            xaxis_title='x (µm)',
+            yaxis_title='t (ms)',
+            zaxis_title='|ψ1|²',
+            aspectmode='manual',
+            aspectratio=dict(x=2, y=1.5, z=1),
+            camera=dict(eye=dict(x=1.5, y=-1.5, z=1.3))
+        ),
+        margin=dict(l=0, r=0, b=0, t=40)
+    )
+
+    # Sauvegarde dans le dossier de simulation
+    output_html = f"{folder}/simulation_interactive_3d_psi1.html"
+    fig.write_html(output_html)
+    print(f"✓ Fichier HTML généré : {output_html}")
+
+    # Création des graphiques 3D pour psi2
+
+     # Création des vecteurs de temps et d'espace
+    tvec = np.linspace(0, Deltat * images, savepsi2_data.shape[0])
+    
+    # Création de la figure 3D
+    fig = go.Figure(data=[go.Surface(
+        x=x, 
+        y=tvec, 
+        z=savepsi2_data,
+        colorscale='Jet',
+        colorbar=dict(title="|ψ2|²", thickness=20)
+    )])
+
+    fig.update_layout(
+        title='Évolution Spatio-Temporelle (BPM 1D)',
+        scene=dict(
+            xaxis_title='x (µm)',
+            yaxis_title='t (ms)',
+            zaxis_title='|ψ2|²',
+            aspectmode='manual',
+            aspectratio=dict(x=2, y=1.5, z=1),
+            camera=dict(eye=dict(x=1.5, y=-1.5, z=1.3))
+        ),
+        margin=dict(l=0, r=0, b=0, t=40)
+    )
+
+    # Sauvegarde dans le dossier de simulation
+    output_html = f"{folder}/simulation_interactive_3d_psi2.html"
+    fig.write_html(output_html)
+    print(f"✓ Fichier HTML généré : {output_html}")
+
     
 
 # Nettoyage
